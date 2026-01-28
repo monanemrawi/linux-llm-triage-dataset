@@ -41,10 +41,7 @@ If you use this dataset in academic work, please cite the following paper:
              Masa'deh, Leen},
   year    = {2026}
 }
-
-  year      = {2026}
-}
-
+```
 
 ## License
 MIT
