@@ -1,0 +1,82 @@
+{
+  "run_id": "run_io_stress_20260103_225311",
+  "timestamp": "2026-01-03T22:53:28+00:00",
+  "scenario": {
+    "name": "io_stress",
+    "label": "io_bottleneck"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_io_stress_20260103_225311/uname.txt",
+    "mpstat": "data/raw/run_io_stress_20260103_225311/mpstat.txt",
+    "vmstat": "data/raw/run_io_stress_20260103_225311/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_io_stress_20260103_225311/dmesg_tail200.txt",
+    "free": "data/raw/run_io_stress_20260103_225311/free.txt",
+    "meminfo": "data/raw/run_io_stress_20260103_225311/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_io_stress_20260103_225311/ps_rss_top20.txt",
+    "top": "data/raw/run_io_stress_20260103_225311/top.txt",
+    "uptime": "data/raw/run_io_stress_20260103_225311/uptime.txt",
+    "iostat": "data/raw/run_io_stress_20260103_225311/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 93.1,
+    "cpu_iowait_pct": 3.36,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 493,
+        "user": "root",
+        "cpu_pct": 66.6,
+        "mem_pct": 0.0,
+        "rss_kb": 5952,
+        "command": "dd if=/dev/zero of=/tmp/io_stress_test.bin bs=4M count=32 conv=fdatasync status=none"
+      },
+      {
+        "pid": 496,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3948,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3940,
+        "command": "bash"
+      },
+      {
+        "pid": 406,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3432,
+        "command": "bash scenarios/io_stress.sh 15"
+      },
+      {
+        "pid": 409,
+        "user": "root",
+        "cpu_pct": 0.1,
+        "mem_pct": 0.0,
+        "rss_kb": 3364,
+        "command": "bash -c while :; do dd if=/dev/zero of=/tmp/io_stress_test.bin bs=4M count=32 conv=fdatasync status=none; done"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 45.4,
+    "disk_w_await_ms": 14.79,
+    "disk_r_await_ms": 0.0,
+    "disk_wkB_s": 655560.0,
+    "disk_rkB_s": 0.0,
+    "mem_available_mb_meminfo": 7123.2890625,
+    "top_rss_max_kb": 5952,
+    "top_rss_max_command": "dd if=/dev/zero of=/tmp/io_stress_test.bin bs=4M count=32 conv=fdatasync status=none",
+    "disk_best_w_await_ms": 14.79,
+    "disk_best_r_await_ms": 0.0,
+    "disk_best_wkB_s": 655560.0,
+    "disk_best_rkB_s": 0.0
+  }
+}

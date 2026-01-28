@@ -1,0 +1,82 @@
+{
+  "run_id": "run_cpu_stress_20260103_212243",
+  "timestamp": "2026-01-03T21:22:59+00:00",
+  "scenario": {
+    "name": "cpu_stress",
+    "label": "cpu_contention"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_cpu_stress_20260103_212243/uname.txt",
+    "mpstat": "data/raw/run_cpu_stress_20260103_212243/mpstat.txt",
+    "vmstat": "data/raw/run_cpu_stress_20260103_212243/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_cpu_stress_20260103_212243/dmesg_tail200.txt",
+    "free": "data/raw/run_cpu_stress_20260103_212243/free.txt",
+    "meminfo": "data/raw/run_cpu_stress_20260103_212243/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_cpu_stress_20260103_212243/ps_rss_top20.txt",
+    "top": "data/raw/run_cpu_stress_20260103_212243/top.txt",
+    "uptime": "data/raw/run_cpu_stress_20260103_212243/uptime.txt",
+    "iostat": "data/raw/run_cpu_stress_20260103_212243/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 87.48,
+    "cpu_iowait_pct": 0.0,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 227,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 4020,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3900,
+        "command": "bash"
+      },
+      {
+        "pid": 211,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3540,
+        "command": "bash scenarios/cpu_stress.sh 15"
+      },
+      {
+        "pid": 209,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3460,
+        "command": "bash scripts/run_scenario.sh cpu_stress cpu_contention 15"
+      },
+      {
+        "pid": 218,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3444,
+        "command": "bash scripts/collect_raw.sh run_cpu_stress_20260103_212243"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 0.0,
+    "disk_w_await_ms": 1.0,
+    "disk_r_await_ms": 0.0,
+    "disk_wkB_s": 4.0,
+    "disk_rkB_s": 0.0,
+    "mem_available_mb_meminfo": 7133.6953125,
+    "top_rss_max_kb": 4020,
+    "top_rss_max_command": "ps aux --sort=-rss",
+    "disk_best_w_await_ms": 1.0,
+    "disk_best_r_await_ms": 0.0,
+    "disk_best_wkB_s": 4.0,
+    "disk_best_rkB_s": 0.0
+  }
+}

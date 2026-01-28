@@ -1,0 +1,82 @@
+{
+  "run_id": "run_mem_pressure_20260109_233051",
+  "timestamp": "2026-01-09T23:31:31+00:00",
+  "scenario": {
+    "name": "mem_pressure",
+    "label": "mem_pressure"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_mem_pressure_20260109_233051/uname.txt",
+    "mpstat": "data/raw/run_mem_pressure_20260109_233051/mpstat.txt",
+    "vmstat": "data/raw/run_mem_pressure_20260109_233051/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_mem_pressure_20260109_233051/dmesg_tail200.txt",
+    "free": "data/raw/run_mem_pressure_20260109_233051/free.txt",
+    "meminfo": "data/raw/run_mem_pressure_20260109_233051/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_mem_pressure_20260109_233051/ps_rss_top20.txt",
+    "top": "data/raw/run_mem_pressure_20260109_233051/top.txt",
+    "uptime": "data/raw/run_mem_pressure_20260109_233051/uptime.txt",
+    "iostat": "data/raw/run_mem_pressure_20260109_233051/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 99.91,
+    "cpu_iowait_pct": 0.01,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 4878,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.1,
+        "rss_kb": 13460,
+        "command": "python3 -m src.run_experiments --per-class 20 --min-sec 10 --max-sec 30 --shuffle"
+      },
+      {
+        "pid": 9139,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 4024,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3924,
+        "command": "bash"
+      },
+      {
+        "pid": 9124,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3436,
+        "command": "bash scripts/run_scenario.sh mem_pressure mem_pressure 13"
+      },
+      {
+        "pid": 9128,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3420,
+        "command": "bash scripts/collect_raw.sh run_mem_pressure_20260109_233051"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 3.65,
+    "disk_w_await_ms": 24.36,
+    "disk_r_await_ms": 0.52,
+    "disk_wkB_s": 35585.24,
+    "disk_rkB_s": 14.23,
+    "mem_available_mb_meminfo": 7174.4921875,
+    "top_rss_max_kb": 13460,
+    "top_rss_max_command": "python3 -m src.run_experiments --per-class 20 --min-sec 10 --max-sec 30 --shuffle",
+    "disk_best_w_await_ms": 24.36,
+    "disk_best_r_await_ms": 0.38,
+    "disk_best_wkB_s": 35585.24,
+    "disk_best_rkB_s": 6.21
+  }
+}

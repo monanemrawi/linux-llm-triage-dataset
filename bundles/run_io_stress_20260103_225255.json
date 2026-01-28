@@ -1,0 +1,82 @@
+{
+  "run_id": "run_io_stress_20260103_225255",
+  "timestamp": "2026-01-03T22:53:11+00:00",
+  "scenario": {
+    "name": "io_stress",
+    "label": "io_bottleneck"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_io_stress_20260103_225255/uname.txt",
+    "mpstat": "data/raw/run_io_stress_20260103_225255/mpstat.txt",
+    "vmstat": "data/raw/run_io_stress_20260103_225255/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_io_stress_20260103_225255/dmesg_tail200.txt",
+    "free": "data/raw/run_io_stress_20260103_225255/free.txt",
+    "meminfo": "data/raw/run_io_stress_20260103_225255/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_io_stress_20260103_225255/ps_rss_top20.txt",
+    "top": "data/raw/run_io_stress_20260103_225255/top.txt",
+    "uptime": "data/raw/run_io_stress_20260103_225255/uptime.txt",
+    "iostat": "data/raw/run_io_stress_20260103_225255/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 93.08,
+    "cpu_iowait_pct": 3.26,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 379,
+        "user": "root",
+        "cpu_pct": 100.0,
+        "mem_pct": 0.0,
+        "rss_kb": 5984,
+        "command": "dd if=/dev/zero of=/tmp/io_stress_test.bin bs=4M count=32 conv=fdatasync status=none"
+      },
+      {
+        "pid": 382,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3972,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3940,
+        "command": "bash"
+      },
+      {
+        "pid": 294,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3416,
+        "command": "bash scripts/run_scenario.sh io_stress io_bottleneck 15"
+      },
+      {
+        "pid": 296,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3360,
+        "command": "bash scenarios/io_stress.sh 15"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 47.0,
+    "disk_w_await_ms": 15.9,
+    "disk_r_await_ms": 0.0,
+    "disk_wkB_s": 524456.0,
+    "disk_rkB_s": 0.0,
+    "mem_available_mb_meminfo": 7141.7109375,
+    "top_rss_max_kb": 5984,
+    "top_rss_max_command": "dd if=/dev/zero of=/tmp/io_stress_test.bin bs=4M count=32 conv=fdatasync status=none",
+    "disk_best_w_await_ms": 15.9,
+    "disk_best_r_await_ms": 0.0,
+    "disk_best_wkB_s": 524456.0,
+    "disk_best_rkB_s": 0.0
+  }
+}

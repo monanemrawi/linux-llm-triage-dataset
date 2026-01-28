@@ -1,0 +1,82 @@
+{
+  "run_id": "run_io_stress_20260109_192215",
+  "timestamp": "2026-01-09T19:22:44+00:00",
+  "scenario": {
+    "name": "io_stress",
+    "label": "io_bottleneck"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_io_stress_20260109_192215/uname.txt",
+    "mpstat": "data/raw/run_io_stress_20260109_192215/mpstat.txt",
+    "vmstat": "data/raw/run_io_stress_20260109_192215/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_io_stress_20260109_192215/dmesg_tail200.txt",
+    "free": "data/raw/run_io_stress_20260109_192215/free.txt",
+    "meminfo": "data/raw/run_io_stress_20260109_192215/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_io_stress_20260109_192215/ps_rss_top20.txt",
+    "top": "data/raw/run_io_stress_20260109_192215/top.txt",
+    "uptime": "data/raw/run_io_stress_20260109_192215/uptime.txt",
+    "iostat": "data/raw/run_io_stress_20260109_192215/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 93.02,
+    "cpu_iowait_pct": 3.32,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 1174,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.1,
+        "rss_kb": 13512,
+        "command": "python3 -m src.run_experiments --per-class 20 --min-sec 10 --max-sec 30 --shuffle"
+      },
+      {
+        "pid": 3350,
+        "user": "root",
+        "cpu_pct": 83.3,
+        "mem_pct": 0.0,
+        "rss_kb": 5948,
+        "command": "dd if=/dev/zero of=/tmp/io_stress_test.bin bs=4M count=32 conv=fdatasync status=none"
+      },
+      {
+        "pid": 3353,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3992,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3804,
+        "command": "bash"
+      },
+      {
+        "pid": 3260,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3384,
+        "command": "bash scenarios/io_stress.sh 29"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 56.1,
+    "disk_w_await_ms": 12.95,
+    "disk_r_await_ms": 0.0,
+    "disk_wkB_s": 819308.0,
+    "disk_rkB_s": 0.0,
+    "mem_available_mb_meminfo": 7122.18359375,
+    "top_rss_max_kb": 13512,
+    "top_rss_max_command": "python3 -m src.run_experiments --per-class 20 --min-sec 10 --max-sec 30 --shuffle",
+    "disk_best_w_await_ms": 12.95,
+    "disk_best_r_await_ms": 0.0,
+    "disk_best_wkB_s": 819308.0,
+    "disk_best_rkB_s": 0.0
+  }
+}

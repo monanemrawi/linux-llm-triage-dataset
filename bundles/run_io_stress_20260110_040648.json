@@ -1,0 +1,82 @@
+{
+  "run_id": "run_io_stress_20260110_040648",
+  "timestamp": "2026-01-10T04:07:28+00:00",
+  "scenario": {
+    "name": "io_stress",
+    "label": "io_bottleneck"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_io_stress_20260110_040648/uname.txt",
+    "mpstat": "data/raw/run_io_stress_20260110_040648/mpstat.txt",
+    "vmstat": "data/raw/run_io_stress_20260110_040648/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_io_stress_20260110_040648/dmesg_tail200.txt",
+    "free": "data/raw/run_io_stress_20260110_040648/free.txt",
+    "meminfo": "data/raw/run_io_stress_20260110_040648/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_io_stress_20260110_040648/ps_rss_top20.txt",
+    "top": "data/raw/run_io_stress_20260110_040648/top.txt",
+    "uptime": "data/raw/run_io_stress_20260110_040648/uptime.txt",
+    "iostat": "data/raw/run_io_stress_20260110_040648/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 94.65,
+    "cpu_iowait_pct": 2.5,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 644,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.1,
+        "rss_kb": 13384,
+        "command": "python3 -m src.run_experiments --per-class 100 --min-sec 10 --max-sec 30 --seed 1337 --shuffle"
+      },
+      {
+        "pid": 20338,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3988,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3904,
+        "command": "bash"
+      },
+      {
+        "pid": 638,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3500,
+        "command": "bash -lc  set -euo pipefail  TS=$(date +%Y%m%d_%H%M%S) export TS OUT_JSON=\"data/experiment_summaries/exp_${TS}.json\" export OUT_JSON  mkdir -p data/experiment_summaries paper_notes paper_results  echo \"=== [0/8] Check Ollama reachable ===\" python3 - <<PY import os, requests, sys host = os.getenv(\"OLLAMA_HOST\",\"http://host.docker.internal:11434\") try:     r = requests.get(f\"{host}/api/tags\", timeout=10)     r.raise_for_status()     print(\"Ollama OK:\", host) except Exception as e:     print(\"ERROR: Cannot reach Ollama at\", host, \"\\\\n\", e)     sys.exit(1) PY  echo \"=== [1/8] Run experiment (300 total = 100 per class) ===\" python3 -m src.run_experiments --per-class 100 --min-sec 10 --max-sec 30 --seed 1337 --shuffle | tee \"/tmp/exp_run_${TS}.log\"  echo \"=== [2/8] Build bundles ===\" python3 -m src.build_bundle  echo \"=== [3/8] LLM triage (fills missing outputs only) ===\" python3 -m src.ollama_triage  echo \"=== [4/8] Baseline ===\" python3 -m src.baseline  echo \"=== [5/8] Eval + abstention-aware eval ===\" python3 -m src.eval > \"/tmp/llm_eval_${TS}.txt\" python3 -m src.eval_with_abstention > \"/tmp/llm_abst_${TS}.txt\" python3 -m src.eval_baseline > \"/tmp/base_eval_${TS}.txt\"  echo \"=== [6/8] Figures ===\" python3 -m src.make_figures  echo \"=== [7/8] Write paper notes (latest) ===\" cp \"/tmp/llm_abst_${TS}.txt\" paper_notes/llm_abstention_latest.txt cp \"/tmp/base_eval_${TS}.txt\" paper_notes/baseline_latest.txt  echo \"=== [8/8] Write experiment summary JSON + snapshot ===\" python3 - <<PY import json, os from pathlib import Path  ts = os.environ[\"TS\"] out_json = Path(os.environ[\"OUT_JSON\"])  def read(p):     p = Path(p)     return p.read_text() if p.exists() else \"\"  summary = {   \"timestamp\": ts,   \"command\": \"python3 -m src.run_experiments --per-class 100 --min-sec 10 --max-sec 30 --seed 1337 --shuffle\",   \"num_bundles\": len(list(Path(\"data/bundles\").glob(\"*.json\"))),   \"num_llm_outputs\": len(list(Path(\"data/llm_outputs\").glob(\"*.json\"))),   \"num_baseline_outputs\": len(list(Path(\"data/baseline_outputs\").glob(\"*.json\"))),   \"run_log_tail\": read(f\"/tmp/exp_run_{ts}.log\")[-6000:],   \"llm_eval_text\": read(f\"/tmp/llm_eval_{ts}.txt\"),   \"llm_abstention_eval_text\": read(f\"/tmp/llm_abst_{ts}.txt\"),   \"baseline_eval_text\": read(f\"/tmp/base_eval_{ts}.txt\"),   \"figures\": sorted([p.name for p in Path(\"paper_figures\").glob(\"*.png\")]) if Path(\"paper_figures\").exists() else [], } out_json.parent.mkdir(parents=True, exist_ok=True) out_json.write_text(json.dumps(summary, indent=2)) print(f\"Saved summary: {out_json}\") PY  SNAP=\"paper_results/snapshot_${TS}\" mkdir -p \"$SNAP\" cp \"$OUT_JSON\" \"$SNAP/\" cp paper_notes/*.txt \"$SNAP/\" || true cp -r paper_figures \"$SNAP/\" 2>/dev/null || true  echo \"DONE \u2705  Snapshot: $SNAP\" "
+      },
+      {
+        "pid": 20277,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3468,
+        "command": "bash scripts/collect_raw.sh run_io_stress_20260110_040648"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 7.15,
+    "disk_w_await_ms": 13.9,
+    "disk_r_await_ms": 0.48,
+    "disk_wkB_s": 100356.54,
+    "disk_rkB_s": 25.95,
+    "mem_available_mb_meminfo": 7118.53125,
+    "top_rss_max_kb": 13384,
+    "top_rss_max_command": "python3 -m src.run_experiments --per-class 100 --min-sec 10 --max-sec 30 --seed 1337 --shuffle",
+    "disk_best_w_await_ms": 13.9,
+    "disk_best_r_await_ms": 0.24,
+    "disk_best_wkB_s": 100356.54,
+    "disk_best_rkB_s": 25.95
+  }
+}

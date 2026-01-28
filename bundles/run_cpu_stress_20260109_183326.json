@@ -1,0 +1,82 @@
+{
+  "run_id": "run_cpu_stress_20260109_183326",
+  "timestamp": "2026-01-09T18:33:42+00:00",
+  "scenario": {
+    "name": "cpu_stress",
+    "label": "cpu_contention"
+  },
+  "raw_paths": {
+    "uname": "data/raw/run_cpu_stress_20260109_183326/uname.txt",
+    "mpstat": "data/raw/run_cpu_stress_20260109_183326/mpstat.txt",
+    "vmstat": "data/raw/run_cpu_stress_20260109_183326/vmstat.txt",
+    "dmesg_tail200": "data/raw/run_cpu_stress_20260109_183326/dmesg_tail200.txt",
+    "free": "data/raw/run_cpu_stress_20260109_183326/free.txt",
+    "meminfo": "data/raw/run_cpu_stress_20260109_183326/meminfo.txt",
+    "ps_rss_top20": "data/raw/run_cpu_stress_20260109_183326/ps_rss_top20.txt",
+    "top": "data/raw/run_cpu_stress_20260109_183326/top.txt",
+    "uptime": "data/raw/run_cpu_stress_20260109_183326/uptime.txt",
+    "iostat": "data/raw/run_cpu_stress_20260109_183326/iostat.txt"
+  },
+  "features": {
+    "cpu_idle_pct": 87.35,
+    "cpu_iowait_pct": 0.01,
+    "mem_available_mb": 7168.0,
+    "swap_used_mb": 0.0,
+    "oom_kill_detected": false,
+    "top_rss_processes": [
+      {
+        "pid": 601,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 4024,
+        "command": "ps aux --sort=-rss"
+      },
+      {
+        "pid": 1,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3800,
+        "command": "bash"
+      },
+      {
+        "pid": 585,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3484,
+        "command": "bash scenarios/cpu_stress.sh 15"
+      },
+      {
+        "pid": 592,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3428,
+        "command": "bash scripts/collect_raw.sh run_cpu_stress_20260109_183326"
+      },
+      {
+        "pid": 583,
+        "user": "root",
+        "cpu_pct": 0.0,
+        "mem_pct": 0.0,
+        "rss_kb": 3324,
+        "command": "bash scripts/run_scenario.sh cpu_stress cpu_contention 15"
+      }
+    ],
+    "disk_name": "vda",
+    "disk_util_pct": 0.6,
+    "disk_w_await_ms": 6.71,
+    "disk_r_await_ms": 0.0,
+    "disk_wkB_s": 14140.0,
+    "disk_rkB_s": 0.0,
+    "mem_available_mb_meminfo": 7180.78515625,
+    "top_rss_max_kb": 4024,
+    "top_rss_max_command": "ps aux --sort=-rss",
+    "disk_best_w_await_ms": 6.71,
+    "disk_best_r_await_ms": 0.0,
+    "disk_best_wkB_s": 14140.0,
+    "disk_best_rkB_s": 0.0
+  }
+}
