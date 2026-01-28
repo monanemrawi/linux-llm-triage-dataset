@@ -25,8 +25,25 @@ including heuristic and learning-based approaches.
 
 If you use this dataset in academic work, please cite the following paper:
 
-> Mona Nemrawi, et al.  
+> Omar Al-Mousa, et al.  
 > *Assisting Linux Performance Diagnosis Using Large Language Models*, 2026.
+
+
+### BibTeX
+```bibtex
+@article{nemrawi2026linuxllm,
+  title     = {Assisting Linux Performance Diagnosis Using Large Language Models},
+  @article{ --,
+  title   = {Assisting Linux Performance Diagnosis Using Large Language Models},
+  author  = {Al-Mousa, Omar and
+             Al-Nemrawi, Mona and
+             Al-Qudah, Ban and
+             Masa'deh, Leen},
+  year    = {2026}
+}
+
+  year      = {2026}
+}
 
 
 ## License
